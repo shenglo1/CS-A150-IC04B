@@ -8,7 +8,6 @@ EXE = main.exe
 # Modify compiler flags as desired
 CXXFLAGS = -std=c++11 -Wextra -Wconversion -Wall -pedantic -Os
 
-
 ######################################################
 #	GENERALLY WON'T CHANGE ANY OF THIS
 ######################################################
@@ -16,7 +15,6 @@ ifeq ($(strip $(EXE)),)
 empty-exe-error:
 	@echo FORGOT TO SUPPLY A NAME TO EXE IN MAKEFILE
 endif
-
 
 # All cpp files in folder
 SRC = $(wildcard *.cpp)
@@ -34,10 +32,6 @@ run: $(EXE)
 # Rule to build the executable
 $(EXE): $(OBJS)
 	$(CXX) $(LDFLAGS) $(OBJS) -o $@
-
-# Run psuedo target
-#run: $(EXE)
-#	@$(EXE)
 
 # Rule for g++ to build .o files from .cpp files
 %.o : %.cpp
